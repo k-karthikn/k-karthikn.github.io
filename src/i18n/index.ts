@@ -22,6 +22,14 @@ export function useTranslations(locale: string = "en"): ResolvedStrings {
   const t = translations[locale] ?? translations["en"];
   return {
     ...t,
+    nav: { blogs: "Blogs", projects: "Projects", ...t.nav },
+    pages: {
+      blogsTitle: "Blogs",
+      blogsDesc: "All the articles I've posted.",
+      projectsTitle: "Projects",
+      projectsDesc: "Showcase of my engineering and software projects.",
+      ...t.pages,
+    },
     post: { tableOfContents: "Table of contents", ...t.post },
     a11y: { skipTableOfContents: "Skip table of contents", ...t.a11y },
   };

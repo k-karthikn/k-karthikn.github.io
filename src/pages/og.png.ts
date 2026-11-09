@@ -11,7 +11,10 @@ export const GET: APIRoute = async context => {
   const boldFontPath = getFontPathByWeight(fonts, 700);
 
   if (regularFontPath === undefined || boldFontPath === undefined) {
-    throw new Error("Cannot find the font path.");
+    return new Response(null, {
+      status: 404,
+      statusText: "Font unavailable in offline environment",
+    });
   }
 
   const [regularData, boldData] = await Promise.all([
